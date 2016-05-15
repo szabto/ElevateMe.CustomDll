@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ElevatorSaga.Core</name>
+    </assembly>
+    <members>
+        <member name="T:ElevatorSaga.Core.Classes.Direction">
+            <summary>
+            Direction enum. 
+            </summary>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.Direction.None">
+            <summary>
+            If no direction set
+            </summary>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.Direction.Up">
+            <summary>
+            Direction is up
+            </summary>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.Direction.Down">
+            <summary>
+            Direction is down
+            </summary>
+        </member>
+        <member name="T:ElevatorSaga.Core.Classes.Elevator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ElevatorSaga.Core.Classes.Elevator.Direction">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:ElevatorSaga.Core.Classes.Elevator.GoingUpIndicator">
+            <summary>
+            Indicates when elevator can go up. Will affect User's behavior.
+            </summary>
+        </member>
+        <member name="P:ElevatorSaga.Core.Classes.Elevator.GoingDownIndicator">
+            <summary>
+            Indicates when elevator can go down. Will affect User's behavior.
+            </summary>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.Elevator.IndicatorChanged">
+            <summary>
+            Event triggered, when some of indicator has been changed.
+            </summary>
+        </member>
+        <member name="P:ElevatorSaga.Core.Classes.Elevator.EstimatedCapacity">
+            <summary>
+            Returns the estimated user capacity of the elevator, based on avg weight, 80 kg, and elevator's maximum weight capacity.
+            </summary>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.Elevator.MaxWeight">
+            <summary>
+            Return the elevator's maximum weight capacity.
+            </summary>
+        </member>
+        <member name="M:ElevatorSaga.Core.Classes.Elevator.#ctor(System.Int32)">
+            <summary>
+            Elevator constructor. A max weight can passed.
+            </summary>
+            <param name="maxWeight">Maximum weight what elevator can lift.</param>
+        </member>
+        <member name="M:ElevatorSaga.Core.Classes.Elevator.GetCurrentLoad">
+            <summary>
+            Returns the current weight load of the elevator in percentage.
+            </summary>
+            <returns>Elevators current load. Min is 0, max is 100</returns>
+        </member>
+        <member name="M:ElevatorSaga.Core.Classes.Elevator.CanUserEnter(ElevatorSaga.Core.Classes.User)">
+            <summary>
+            Determines if the desired user can enter to the elevator based on user's weight, and elevator's current weight.
+            </summary>
+            <param name="user">User what is passed.</param>
+            <returns>True if user can enter, false if not</returns>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.Floor.Level">
+            <summary>
+            Shows the floor's level.
+            </summary>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.Floor.IsTopFloor">
+            <summary>
+            Determines if current floor is Top
+            </summary>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.Floor.IsBottomFloor">
+            <summary>
+            Determines if current floor is bottom.
+            </summary>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.Floor.OnButtonPressed">
+            <summary>
+            Event for button presses on the floor. This triggered by awaiting users, or GUI interaction.
+            </summary>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.Floor.OnButtonStateChanged">
+            <summary>
+            Event for button state changes on the floor. This triggered by awaiting users, GUI interaction, or Elevator arrival, or Elevator Direction change.
+            </summary>
+        </member>
+        <member name="M:ElevatorSaga.Core.Classes.Floor.#ctor(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Floor constructor. 
+            </summary>
+            <param name="level"></param>
+            <param name="it"></param>
+            <param name="ib"></param>
+        </member>
+        <member name="M:ElevatorSaga.Core.Classes.Floor.PressUpButton">
+            <summary>
+            Press up botton in the floor. (Can pressed only once.)
+            </summary>
+        </member>
+        <member name="M:ElevatorSaga.Core.Classes.Floor.PressDownButton">
+            <summary>
+            Press down botton in the floor. (Can pressed only once.)
+            </summary>
+        </member>
+        <member name="P:ElevatorSaga.Core.Classes.User.Weigth">
+            <summary>
+            User's weight. Important for elevator capacity calculation.
+            </summary>
+        </member>
+        <member name="P:ElevatorSaga.Core.Classes.User.CurrentFloor">
+            <summary>
+            Determines on which floor is currently waiting the user.
+            </summary>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.User.DestinationFloor">
+            <summary>
+            Determines where the user want to go
+            </summary>
+        </member>
+        <member name="M:ElevatorSaga.Core.Classes.User.#ctor(ElevatorSaga.Core.Classes.Floor,ElevatorSaga.Core.Classes.Floor)">
+            <summary>
+            Creates a user with waiting floor, and a destination floor
+            </summary>
+            <param name="currentFloor">The current floor, user is waiting on</param>
+            <param name="destinationFloor">The destination floor, where user wants to go</param>
+        </member>
+        <member name="T:ElevatorSaga.Core.Classes.Child">
+            <summary>
+            Child, has not a big weight.
+            </summary>
+        </member>
+        <member name="P:ElevatorSaga.Core.Classes.Child.Weigth">
+            <summary>
+            Children usually light. 
+            In current situation will be 30 kg.
+            </summary>
+        </member>
+        <member name="T:ElevatorSaga.Core.Classes.Man">
+            <summary>
+            Average adult man. Has a big weight
+            </summary>
+        </member>
+        <member name="P:ElevatorSaga.Core.Classes.Man.Weigth">
+            <summary>
+            This adult man, has 100kg weight. Uhh.
+            </summary>
+        </member>
+        <member name="T:ElevatorSaga.Core.Classes.Women">
+            <summary>
+            Average adult female
+            </summary>
+        </member>
+        <member name="P:ElevatorSaga.Core.Classes.Women.Weigth">
+            <summary>
+            Female, she is 60kg.
+            </summary>
+        </member>
+        <member name="T:ElevatorSaga.Core.Classes.WheelChaired">
+            <summary>
+            A wheelchaired person.
+            </summary>
+        </member>
+        <member name="P:ElevatorSaga.Core.Classes.WheelChaired.Weigth">
+            <summary>
+            Has 80 kg weight.
+            </summary>
+        </member>
+        <member name="T:ElevatorSaga.Core.Classes.World">
+            <summary>
+            Main world. This will do everything.
+            </summary>
+        </member>
+        <member name="T:ElevatorSaga.Core.Interfaces.IWorld">
+            <summary>
+            Interface for create the dll main
+            </summary>
+        </member>
+        <member name="P:ElevatorSaga.Core.Interfaces.IWorld.Author">
+            <summary>
+            Author name
+            </summary>
+        </member>
+        <member name="P:ElevatorSaga.Core.Interfaces.IWorld.AuthorEmail">
+            <summary>
+            Authors email address
+            </summary>
+        </member>
+        <member name="M:ElevatorSaga.Core.Interfaces.IWorld.Initialize">
+            <summary>
+            The Entry point of the dll
+            </summary>
+        </member>
+        <member name="M:ElevatorSaga.Core.Interfaces.IWorld.WorldGenerated(System.Collections.Generic.List{ElevatorSaga.Core.Classes.Floor},System.Collections.Generic.List{ElevatorSaga.Core.Classes.Elevator})">
+            <summary>
+            Triggered when world generation is done.
+            </summary>
+            <param name="floors">Floor list.</param>
+            <param name="elevators">Elevator list.</param>
+        </member>
+        <member name="M:ElevatorSaga.Core.Interfaces.IWorld.Update(System.Int32,ElevatorSaga.Core.Classes.World)">
+            <summary>
+            Triggered on every changed frame
+            </summary>
+            <param name="frame">Frame number</param>
+            <param name="world">World object</param>
+        </member>
+    </members>
+</doc>

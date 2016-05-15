@@ -9,7 +9,7 @@ using ElevatorSaga.Core.Interfaces;
 
 namespace ElevatorSaga.CustomDll
 {
-    public class CustomDll : IWorld
+    public class CustomWorld : IWorld
     {
         private List<Floor> Floors;
         private List<Elevator> Elevators;
@@ -22,10 +22,10 @@ namespace ElevatorSaga.CustomDll
         {
         }
 
-        public void WorldGenerated(List<Floor> f, List<Elevator> e)
+        public void WorldGenerated(List<Floor> floors, List<Elevator> elevators)
         {
-            Floors = f;
-            Elevators = e;
+            Floors = floors;
+            Elevators = elevators;
         }
 
         public void Update(int frame, World world)
