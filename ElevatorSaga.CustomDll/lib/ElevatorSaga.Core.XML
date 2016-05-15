@@ -31,6 +31,7 @@
         </member>
         <member name="P:ElevatorSaga.Core.Classes.Elevator.Direction">
             <summary>
+            Move direction. If the elevator is stopped, then Direction will be Direction.None
             </summary>
         </member>
         <member name="P:ElevatorSaga.Core.Classes.Elevator.GoingUpIndicator">
@@ -183,9 +184,61 @@
             Has 80 kg weight.
             </summary>
         </member>
+        <member name="T:ElevatorSaga.Core.Classes.FloorAddedEventArgs">
+            <summary>
+            Event for adding floors to world.
+            </summary>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.FloorAddedEventArgs.Floor">
+            <summary>
+            The added floor.
+            </summary>
+        </member>
+        <member name="M:ElevatorSaga.Core.Classes.FloorAddedEventArgs.#ctor(ElevatorSaga.Core.Classes.Floor)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="floor"></param>
+        </member>
+        <member name="T:ElevatorSaga.Core.Classes.ElevatorAddedEventArgs">
+            <summary>
+            Event for elevator adding to world.
+            </summary>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.ElevatorAddedEventArgs.Elevator">
+            <summary>
+            The added elevator.
+            </summary>
+        </member>
+        <member name="M:ElevatorSaga.Core.Classes.ElevatorAddedEventArgs.#ctor(ElevatorSaga.Core.Classes.Elevator)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="elevator"></param>
+        </member>
         <member name="T:ElevatorSaga.Core.Classes.World">
             <summary>
             Main world. This will do everything.
+            </summary>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.World.FloorAdded">
+            <summary>
+            Event in world, triggered when a new floor added
+            </summary>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.World.ElevatorAdded">
+            <summary>
+            Event in world, triggered when new elevator added
+            </summary>
+        </member>
+        <member name="M:ElevatorSaga.Core.Classes.World.Generate">
+            <summary>
+            Function to generate the World.
+            </summary>
+        </member>
+        <member name="M:ElevatorSaga.Core.Classes.World.LoadUserCode">
+            <summary>
+            Loads the user's dll
             </summary>
         </member>
         <member name="T:ElevatorSaga.Core.Interfaces.IWorld">
