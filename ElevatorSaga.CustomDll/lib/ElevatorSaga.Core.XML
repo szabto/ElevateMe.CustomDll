@@ -24,6 +24,28 @@
             Direction is down
             </summary>
         </member>
+        <member name="T:ElevatorSaga.Core.Classes.IndicatorEventArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.IndicatorEventArgs.Direction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.IndicatorEventArgs.Value">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ElevatorSaga.Core.Classes.IndicatorEventArgs.#ctor(ElevatorSaga.Core.Classes.Direction,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="dir"></param>
+            <param name="val"></param>
+        </member>
         <member name="T:ElevatorSaga.Core.Classes.Elevator">
             <summary>
             
@@ -44,9 +66,24 @@
             Indicates when elevator can go down. Will affect User's behavior.
             </summary>
         </member>
+        <member name="F:ElevatorSaga.Core.Classes.Elevator.DestinationQueue">
+            <summary>
+            Floor list with destination levels. Not sorted automatically
+            </summary>
+        </member>
         <member name="F:ElevatorSaga.Core.Classes.Elevator.IndicatorChanged">
             <summary>
             Event triggered, when some of indicator has been changed.
+            </summary>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.Elevator.PassFloor">
+            <summary>
+            Event when a not queued floor is passed
+            </summary>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.Elevator.StoppedAtFloor">
+            <summary>
+            Event for stopping at floor.
             </summary>
         </member>
         <member name="P:ElevatorSaga.Core.Classes.Elevator.EstimatedCapacity">
@@ -65,11 +102,25 @@
             </summary>
             <param name="maxWeight">Maximum weight what elevator can lift.</param>
         </member>
+        <member name="M:ElevatorSaga.Core.Classes.Elevator.GoToFloor(System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="floor"></param>
+            <param name="goFirst"></param>
+        </member>
         <member name="M:ElevatorSaga.Core.Classes.Elevator.GetCurrentLoad">
             <summary>
             Returns the current weight load of the elevator in percentage.
             </summary>
             <returns>Elevators current load. Min is 0, max is 100</returns>
+        </member>
+        <member name="M:ElevatorSaga.Core.Classes.Elevator.EnterUser(ElevatorSaga.Core.Classes.User)">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
         </member>
         <member name="M:ElevatorSaga.Core.Classes.Elevator.CanUserEnter(ElevatorSaga.Core.Classes.User)">
             <summary>
@@ -136,12 +187,49 @@
             Determines where the user want to go
             </summary>
         </member>
+        <member name="P:ElevatorSaga.Core.Classes.User.IsDone">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ElevatorSaga.Core.Classes.User.CurrentElevator">
+            <summary>
+            Stores the user's current elevator. If user on floor, this will be null.
+            </summary>
+        </member>
+        <member name="F:ElevatorSaga.Core.Classes.User.Mood">
+            <summary>
+            Returns the user's mood
+            </summary>
+        </member>
+        <member name="P:ElevatorSaga.Core.Classes.User.ServiceLevel">
+            <summary>
+            Contain's the service level. It decreases every 2 seconds of wait.
+            </summary>
+        </member>
+        <member name="P:ElevatorSaga.Core.Classes.User.WaitingTime">
+            <summary>
+            Returns the waiting time of user on floor.
+            </summary>
+        </member>
         <member name="M:ElevatorSaga.Core.Classes.User.#ctor(ElevatorSaga.Core.Classes.Floor,ElevatorSaga.Core.Classes.Floor)">
             <summary>
             Creates a user with waiting floor, and a destination floor
             </summary>
             <param name="currentFloor">The current floor, user is waiting on</param>
             <param name="destinationFloor">The destination floor, where user wants to go</param>
+        </member>
+        <member name="M:ElevatorSaga.Core.Classes.User.PressButton">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ElevatorSaga.Core.Classes.User.OnEntranceAvailable(ElevatorSaga.Core.Classes.Elevator)">
+            <summary>
+            
+            </summary>
+            <param name="elevator"></param>
+            <returns></returns>
         </member>
         <member name="T:ElevatorSaga.Core.Classes.Child">
             <summary>
@@ -236,10 +324,29 @@
             Function to generate the World.
             </summary>
         </member>
-        <member name="M:ElevatorSaga.Core.Classes.World.LoadUserCode">
+        <member name="M:ElevatorSaga.Core.Classes.World.LoadUserCode(System.Type)">
             <summary>
             Loads the user's dll
             </summary>
+        </member>
+        <member name="T:ElevatorSaga.Core.Extensions.DllLoadHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ElevatorSaga.Core.Extensions.DllLoadHelper.LoadAssembly(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="assemblyName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ElevatorSaga.Core.Extensions.DllLoadHelper.LoadType(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="className"></param>
+            <returns></returns>
         </member>
         <member name="T:ElevatorSaga.Core.Interfaces.IWorld">
             <summary>
