@@ -42,12 +42,15 @@ namespace ElevatorSaga.CustomDll
 
         private void OnElevatorIdle( object sender, EventArgs eargs)
         {
-            Elevators[0].GoToFloor(Rand.Next(0, Floors.Count - 1));
+            Elevator e = sender as Elevator;
+            e.GoToFloor(Rand.Next(0, Floors.Count - 1));
         }
+
+        Random rnd = new Random();
 
         private void OnFloorButtonPressed(object sender, FloorButtonPressedEventArgs eargs)
         {
-            Elevators[0].GoToFloor(eargs.Floor.Level);
+            Elevators[rnd.Next(0, Elevators.Count)].GoToFloor(eargs.Floor.Level);
         }
 
         public void Update(int frame, World world)
